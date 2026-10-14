@@ -20,7 +20,7 @@ enum ISBN {
     static func canonical13(_ raw: String) -> String? {
         guard let isbn = normalize(raw) else { return nil }
         if isbn.count == 13 { return isbn }
-        let body = "978" + isbn.prefix(9)
+        let body = "978" + String(isbn.prefix(9))
         let sum = body.compactMap(\.wholeNumberValue).enumerated().reduce(0) { $0 + $1.element * ($1.offset % 2 == 0 ? 1 : 3) }
         return body + String((10 - sum % 10) % 10)
     }
