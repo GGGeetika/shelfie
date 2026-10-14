@@ -95,6 +95,7 @@ struct AddBookSheet: View {
             .overlay(RoundedRectangle(cornerRadius: 8).stroke(Theme.Colors.ink.opacity(0.15)))
     }
 
+    @MainActor
     private func save() {
         do {
             try LibraryService(context: context).add(book, source: source, sourceName: sourceName, note: note)
