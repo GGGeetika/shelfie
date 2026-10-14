@@ -1,0 +1,13 @@
+.DS_Store
+*.xcodeproj
+xcuserdata/
+DerivedData/
+build/
+.build/
+*.xcconfig.local
+Secrets.xcconfig
+.env
+.env.*
+.vercel
+node_modules/
+Shelfie/Info.plist

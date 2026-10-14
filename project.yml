@@ -1,0 +1,54 @@
+name: Shelfie
+options:
+  bundleIdPrefix: com.shelfie
+  deploymentTarget:
+    iOS: "17.0"
+  createIntermediateGroups: true
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+    MARKETING_VERSION: "0.1.0"
+    CURRENT_PROJECT_VERSION: "1"
+    # Set your own team in Xcode (Signing & Capabilities) to run on your iPhone.
+    DEVELOPMENT_TEAM: ""
+    CODE_SIGN_STYLE: Automatic
+targets:
+  Shelfie:
+    type: application
+    platform: iOS
+    sources:
+      - Shelfie
+    info:
+      path: Shelfie/Info.plist
+      properties:
+        CFBundleDisplayName: Shelfie
+        UILaunchScreen: {}
+        UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
+        UIAppFonts:
+          - Kalam-Regular.ttf
+          - LibreCaslonDisplay-Regular.ttf
+          - "LibreCaslonText[wght].ttf"
+          - "LibreFranklin[wght].ttf"
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.shelfie.app
+        TARGETED_DEVICE_FAMILY: "1"
+  ShelfieTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - ShelfieTests
+    dependencies:
+      - target: Shelfie
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+schemes:
+  Shelfie:
+    build:
+      targets:
+        Shelfie: all
+        ShelfieTests: [test]
+    test:
+      targets:
+        - ShelfieTests

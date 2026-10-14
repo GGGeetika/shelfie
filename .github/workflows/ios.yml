@@ -1,0 +1,16 @@
+name: iOS build and test
+on:
+  push:
+  pull_request:
+jobs:
+  build-test:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - run: brew install xcodegen
+      - run: xcodegen generate
+      - name: Build and test
+        run: |
+          xcodebuild test -project Shelfie.xcodeproj -scheme Shelfie \
+            -destination 'platform=iOS Simulator,name=iPhone 16' \
+            CODE_SIGNING_ALLOWED=NO | tail -50
