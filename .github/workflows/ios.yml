@@ -11,6 +11,7 @@ jobs:
       - run: xcodegen generate
       - name: Build and test
         run: |
+          set -o pipefail
           xcodebuild test -project Shelfie.xcodeproj -scheme Shelfie \
             -destination 'platform=iOS Simulator,name=iPhone 16' \
             CODE_SIGNING_ALLOWED=NO | tail -50

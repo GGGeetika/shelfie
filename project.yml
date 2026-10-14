@@ -23,6 +23,7 @@ targets:
       properties:
         CFBundleDisplayName: Shelfie
         UILaunchScreen: {}
+        NSCameraUsageDescription: Shelfie uses the camera to read a book's barcode. Nothing is saved or uploaded.
         UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
         UIAppFonts:
           - Kalam-Regular.ttf
